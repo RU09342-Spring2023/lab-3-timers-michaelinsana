@@ -1,0 +1,4 @@
+This code will switch the speed at which the LED blinks in three different modes.
+
+This is accomplished by using the clock in up mode and changing the value of the capture compare register
+when the button is pressed.
