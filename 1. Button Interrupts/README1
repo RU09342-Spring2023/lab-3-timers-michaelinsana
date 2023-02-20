@@ -1,0 +1,8 @@
+The way this code works is when the 2.3 button is not pressed, the red LED will blink and when
+the button is pressed, the green LED will blink
+
+
+This is accomplished by using if statements in the interruot that will detect if a rising or 
+falling edge triggered the interrupt.  If triggered by a falling edge (button pressed) the LED
+color variable is switched as well as the interrupt edge select which will make the interrupt 
+fire off when a rising edge (button released) happens.
