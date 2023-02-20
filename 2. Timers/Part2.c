@@ -65,26 +65,26 @@ void timerInit(){
 #pragma vector=PORT2_VECTOR
 __interrupt void Port_2(void)
 {
-    P2IFG &= ~BIT3;                         // Clear P2.3 IFG
+    P2IFG &= ~BIT3;                         // Clear interrupt flag
 
     // @TODO When the button is pressed, you can change what the CCR0 Register is for the Timer. You will need to track what speed you should be flashing at.
 
     switch(i) {
 
     case 0:
-        TB1CCR0 = 50000;
+        TB1CCR0 = 50000;            //sets timer count value to 50000
         break;
 
     case 1:
-        TB1CCR0 = 30000;
+        TB1CCR0 = 30000;            //sets timer count value to 30000
         break;
 
     case 2:
-        TB1CCR0 = 10000;
+        TB1CCR0 = 10000;            //sets timer count value to 10000
         break;
     }
 
-    if(i < 2)
+    if(i < 2)                       //if the mode isn't at 3, go to the next mode, if it is at 3, go to 1
         i++;
     else
         i = 0;
@@ -96,8 +96,7 @@ __interrupt void Port_2(void)
 #pragma vector = TIMER1_B0_VECTOR
 __interrupt void Timer1_B0_ISR(void)
 {
-    // @TODO You can toggle the LED Pin in this routine and if adjust your count in CCR0.
-    P1OUT ^= BIT0;
+    P1OUT ^= BIT0;          //toggle the LED
 
 }
 

@@ -85,21 +85,20 @@ __interrupt void Port_2(void)
 {
     P2IFG &= ~BIT3;                         // Clear P1.3 IFG
 
-    if (P2IES & BIT3 )       // @TODO Fill in this argument within the If statement to check if the interrupt was triggered off a rising edge.
+    if (P2IES & BIT3 )       // searches for falling edge
     {
         LED_Color = 0;
-        P2IES &= ~BIT3;
+        P2IES &= ~BIT3;     //change interrupt flag to rising edge
 
 
-        // @TODO Add code to change which edge the interrupt should be looking for next
+
     }
 
-    else if (!(P2IES & BIT3)) // @TODO Fill in this argument within the If statement to check if the interrupt was triggered off a falling edge.
+    else if (!(P2IES & BIT3)) // searches for rising edge
     {
         LED_Color = 1;
-        P2IES |= BIT3;
+        P2IES |= BIT3;      //change interruput flag to falling rising
 
-        // @TODO Add code to change which edge the interrupt should be looking for next
     }
 }
 
