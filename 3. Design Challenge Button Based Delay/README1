@@ -1,0 +1,10 @@
+The way this code works is when the 2.3 button is pressed, the green LED will turn on to let you know the 
+system is counting, and when the button is released, the green LED will turn off and the red LED
+will blink for the time the button was held
+
+
+This is accomplished in the same manner as part 1 in that when the interrupt is fired, it will check to see 
+if a rising or falling edge triggered the interrupt.  If it was a falling edge (button pressed) it sets the 
+control variable to 1 where in the main function i will start counting up.  When the rising edge is detected
+(button released) the capture control register is set to the value of i so the LED will blink for as long as 
+the button was held.
